@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import keys from './config/keys';
 
 class GoogleAuth extends Component {
 	state = {
@@ -10,7 +9,7 @@ class GoogleAuth extends Component {
 		// load up google api lib
 		window.gapi.load('client: auth2', () => {
 			window.gapi.client.init({
-				clientId: keys.google_oauth_client_id,
+				clientId: process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID ,
 				scope: 'email',
 			}).then(() => {
 				this.auth = window.gapi.auth2.getAuthInstance();
